@@ -1,0 +1,138 @@
+<!-- Challenge 1 -  Make an SVG with five circles, each with a different color, using data. --><!--
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Trisha d3 1</title>
+  <script src="http://d3js.org/d3.v3.min.js"></script>
+</head>
+<body>
+  <script>
+    var dataset = [10, 20, 40, 60, 80];
+    
+    var colorScale = d3.scale.category20();
+    var svg = d3.select("body").append("svg")
+    .attr("width", 600)
+    .attr("height", 600);
+    
+    svg.selectAll("circle")
+    .data(dataset)
+    .enter().append("circle")
+    .attr("r", 50)
+    .attr("cx", function(d, i) { return i*120 + 50 })
+    .attr("cy", 60)
+    .style("fill", function(d, i) { return colorScale(i) });
+  </script>
+</body>
+-->
+
+<!-- Challenge 2 - Make an SVG with five circles, ordered diagonally across the SVG.--><!--
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Trisha d3 2</title>
+  <script src="http://d3js.org/d3.v3.min.js"></script>
+</head>
+<body>
+  <script>
+    var dataset = [10, 20, 40, 60, 80];
+    
+    var colorScale = d3.scale.category20();
+    var svg = d3.select("body").append("svg")
+    .attr("width", 600)
+    .attr("height", 600);
+    
+    svg.selectAll("circle")
+    .data(dataset)
+    .enter().append("circle")
+    .attr("r", 50)
+    .attr("cx", function(d, i) { return i*80 + 60 })
+    .attr("cy", function(d, i) { return i*80 + 60 })
+    .style("fill", function(d, i) { return colorScale(i) });
+  </script>
+</body>
+-->
+<!-- Challenge 3 - Make an SVG with five circles, ordered randomly across the SVG. (Hint: Math.random()) --> <!--
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Trisha d3 3</title>
+  <script src="http://d3js.org/d3.v3.min.js"></script>
+</head>
+<body>
+  <script>
+    var dataset = [10, 20, 40, 60, 80];
+    
+    var colorScale = d3.scale.category20();
+    var svg = d3.select("body").append("svg")
+    .attr("width", 600)
+    .attr("height", 600);
+    
+    svg.selectAll("circle")
+    .data(dataset)
+    .enter().append("circle")
+    .attr("r", 50)
+    .attr("cx", function(d, i) { return 600*Math.random() })
+    .attr("cy", function(d, i) { return 600*Math.random() })
+    .style("fill", function(d, i) { return colorScale(i) });
+  </script>
+</body>
+-->
+<!-- Challenge 4 - Make an SVG with three circles and a rectangle.--> <!--
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Trisha d3 4</title>
+  <script src="http://d3js.org/d3.v3.min.js"></script>
+</head>
+<body>
+  <script>
+    var circle_data = [20, 40, 60, 80];
+    var rect_data = [10];
+
+    var colorScale = d3.scale.category20();
+    var svg = d3.select("body").append("svg")
+    .attr("width", 600)
+    .attr("height", 600);
+    
+    svg.selectAll("rect")
+    .data(rect_data)
+    .enter().append("rect")
+    .attr("x", function(d, i) { return 500*Math.random(); })
+    .attr("y", function(d, i) { return 500*Math.random(); })
+    .attr("height", 100)
+    .attr("width", 200)
+    .style("fill", function(d, i) { return colorScale(i) });
+    
+    svg.selectAll("circle")
+    .data(circle_data)
+    .enter().append("circle")
+    .attr("r", 50)
+    .attr("cx", function(d, i) { return 600*Math.random() })
+    .attr("cy", function(d, i) { return 600*Math.random() })
+    .style("fill", function(d, i) { return colorScale(i+1) });
+  </script>
+</body>
+-->
+<!-- Challenge 5 - Make a triangle with yellow fill and a blue border. -->
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Trisha d3 5</title>
+    <script src="http://d3js.org/d3.v3.min.js"></script>
+  </head>
+  <body>
+    <script>
+      var dataset = ["200,400 300,200 400,400"];
+      var svg = d3.select("body").append("svg")
+      .attr("width", 600)
+      .attr("height", 600);
+      svg.selectAll("polygon")
+      .data(dataset)
+      .enter().append("polygon")
+      .attr("points", function(d) {return d})
+      .style("fill", "yellow")
+      .style("stroke", "blue")
+      .style("stroke-width", "10px")
+    </script>
+  </body>
+</html>
